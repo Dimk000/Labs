@@ -17,6 +17,7 @@ int main()
         printf("%s\n", "Вычислить функцию G - 1");
         printf("%s\n", "Вычислить функцию F - 2");
         printf("%s\n", "Вычислить функцию Y - 3");
+        printf("%s", "Выберите функцию: ");
         scanf("%d", &b);
 
         switch (b) {
@@ -32,6 +33,8 @@ int main()
                 Y = (float) acos(9 * a * a + 42 * a * x + 40 * x * x + 1);
                 printf("%s%f\n", "Y = ", Y);
                 break;
+            default:
+                printf("%s\n","Ошибка");
         }
     }
     return 0;
