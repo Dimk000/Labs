@@ -3,15 +3,16 @@
 
 int main()
 {
-    float a,x,G,F,Y;
+    double a,x,G,F,Y;
     int b;
 
     printf("Введите значение переменной а = ");
-    scanf("%f" , &a);
+    scanf("%lf" , &a);
     printf("Введите значение переменной x = ");
-    scanf("%f", &x);
+    scanf("%lf", &x);
 
-    if(15*a*a+29*a*x+12*x*x == 0)
+    if(((15*a*a+29*a*x+12*x*x)>= -0.00001 && (15*a*a+29*a*x+12*x*x) <= 0.00001)
+       || (cos(5 * a * a + 14 * a * x - 3 * x * x) >= -0.00001 && cos(5 * a * a + 14 * a * x - 3 * x * x) <= 0.00001))
         printf("Входные данные не подлежат области определения функции");
     else {
         printf("%s\n", "Вычислить функцию G - 1");
@@ -26,11 +27,11 @@ int main()
                 printf("%s%f\n","G = ", G);
                 break;
             case 2:
-                F = 1 / ((float) cos(5 * a * a + 14 * a * x - 3 * x * x));
+                F = 1 /  cos(5 * a * a + 14 * a * x - 3 * x * x);
                 printf("%s%f\n", "F = ", F);
                 break;
             case 3:
-                Y = (float) acos(9 * a * a + 42 * a * x + 40 * x * x + 1);
+                Y = acos(9 * a * a + 42 * a * x + 40 * x * x + 1);
                 printf("%s%f\n", "Y = ", Y);
                 break;
             default:
