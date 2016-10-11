@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <math.h>
 
+double acosh(double);
+
 int main()
 {
     double a,x,G,F,Y;
@@ -31,7 +33,7 @@ int main()
                 printf("%s%f\n", "F = ", F);
                 break;
             case 3:
-                Y = acos(9 * a * a + 42 * a * x + 40 * x * x + 1);
+                Y = acosh(9 * a * a + 42 * a * x + 40 * x * x + 1);
                 printf("%s%f\n", "Y = ", Y);
                 break;
             default:

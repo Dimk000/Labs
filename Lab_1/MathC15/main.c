@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <math.h>
 
-int main()
-{
+double acosh(double);
+
+int main(){
     double a,x,G,F,Y;
 
     printf("Введите значение переменной а = ");
@@ -16,7 +17,7 @@ int main()
     F = 1 / (cos(5 * a * a + 14 * a * x - 3 * x * x));
     printf("%s%f\n", "F = ", F);
 
-    Y =  acos(9 * a * a + 42 * a * x + 40 * x * x + 1);
+    Y =  acosh(9 * a * a + 42 * a * x + 40 * x * x + 1);
     printf("%s%f\n", "Y = ", Y);
 
     return 0;
