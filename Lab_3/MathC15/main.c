@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <math.h>
+#include <string.h>
 
 double acosh(double);
 
@@ -7,6 +8,12 @@ int main()
 {
     double a,x,G,F,Y,z,from,to,i;
     int b,steps;
+
+    printf("%s\n", "Хотите ли вы запустить программу? Yes/No");
+    char yes1[4] = "yes" ;
+    char yes2[4];
+    scanf("%s", yes2);
+    if (strcmp(yes2,yes1) == 0){
 
     printf("Введите значение переменной а = ");
     scanf("%lf" , &a);
@@ -53,7 +60,8 @@ int main()
                     break;
             default:
                 printf("%s\n","Ошибка");
-        }
+        }}
+    else
 
     return 0;
 }

@@ -9,5 +9,5 @@ print("G = ", G)
 F = 1 / (math.cos(5 * a ** 2 + 14 * a * x - 3 * x ** 2))
 print("F = ", F)
 
-Y = math.acosh(9 * a ** 2 + 42 * a * x + 40 * x ** 2 + 1)
+Y = math.acos(9 * a ** 2 + 42 * a * x + 40 * x ** 2 + 1)
 print("Y = ", Y)
