@@ -8,8 +8,8 @@ int main()
 {
     double a,x,G,F,Y,z,from,to,i;
     int b,steps;
-
-    printf("%s\n", "Хотите ли вы запустить программу? Yes/No");
+    for(;;){
+    printf("%s\n", "Хотите ли вы запустить программу? yes/no");
     char yes1[4] = "yes" ;
     char yes2[4];
     scanf("%s", yes2);
@@ -17,6 +17,7 @@ int main()
 
     printf("Введите значение переменной а = ");
     scanf("%lf" , &a);
+    printf("Примечание: От меньшего к большему\n");
     printf("Введите значение переменной x от:  ");
     scanf("%lf", &from);
     printf("До: ");
@@ -35,7 +36,8 @@ int main()
             case 1:
                 for(i=from; i<to;i+=z){
                     x=i;
-                if (((15*a*a+29*a*x+12*x*x) >= -0.00001 && (15*a*a+29*a*x+12*x*x) <= 0.00001)){
+                if (((15*a*a+29*a*x+12*x*x) >= -0.00001
+                     && (15*a*a+29*a*x+12*x*x) <= 0.00001)){
                     printf("Входные данные не подлежат области определения функции");
                     break;}
                 else{
@@ -45,7 +47,8 @@ int main()
             case 2:
                 for(i=from;i<to;i+=z){
                     x=i;
-                if ((cos(5 * a * a + 14 * a * x - 3 * x * x)) >= -0.00001 && (cos(5 * a * a + 14 * a * x - 3 * x * x)) <= 0.00001){
+                if ((cos(5 * a * a + 14 * a * x - 3 * x * x)) >= -0.00001
+                    && (cos(5 * a * a + 14 * a * x - 3 * x * x)) <= 0.00001){
                     printf("Входные данные не подлежат области определения функции");
                     break;}
                 else{
@@ -62,6 +65,6 @@ int main()
                 printf("%s\n","Ошибка");
         }}
     else
-
+    break;}
     return 0;
 }
