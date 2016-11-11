@@ -4,7 +4,7 @@ from matplotlib import pyplot as plt
 print("Запустить программу - 1, выйти - 0")
 enter = int(input())
 
-if (enter == 1):
+while enter == 1:
     a = float(input("Введите значение а: "))
     x = float(input("Введите значение x: "))
     steps = float(input("Количество шагов: "))
@@ -19,7 +19,7 @@ if (enter == 1):
     while x < p:
         x += 1
         if b == 1:
-            if ((15*a**2+29*a*x+12*x**2) >= -0.00001 and (15*a**2+29*a*x+12*x**2) <= 0.00001):
+            if 15*a**2+29*a*x+12*x**2 >= -0.00001 and 15*a**2+29*a*x+12*x**2 <= 0.00001:
                 print("Входные данные не подлежат области определения функции")
             else:
                 G = (4 * (-18 * a ** 2 + 3 * a * x + 10 * x ** 2)) / (15 * a ** 2 + 29 * a * x + 12 * x ** 2)
@@ -28,7 +28,7 @@ if (enter == 1):
                 y_values.append(G)
                 plt.title('График G')
         elif b == 2:
-            if (math.cos(5*a**2+14*a*x-3*x**2) >= -0.00001 and math.cos(5*a**2+14*a*x-3*x**2) <= 0.00001):
+            if math.cos(5*a**2+14*a*x-3*x**2) >= -0.00001 and math.cos(5*a**2+14*a*x-3*x**2) <= 0.00001:
                 print("Входные данные не подлежат области определения функции")
             else:
                 F = 1 / (math.cos(5 * a ** 2 + 14 * a * x - 3 * x ** 2))
@@ -48,8 +48,11 @@ if (enter == 1):
         else:
             print("Ошибка")
             break
-    plt.plot(x_values, y_values)
+    plt.plot(x_values, y_values, 'bo-')
     plt.grid(True)
     plt.xlabel('X')
     plt.ylabel('Y')
     plt.show()
+
+    print("Запустить программу - 1, выйти - 0")
+    enter = int(input())
