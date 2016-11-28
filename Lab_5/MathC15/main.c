@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 #include <string.h>
+#include <stdlib.h>
 
 double acosh(double d) {
     return 0;
@@ -8,9 +9,9 @@ double acosh(double d) {
 
 int main()
 {
-    double a,x,G,F,Y,from_x,to_x,i,j,from_a,to_a,x_step,a_step,max,min;
+    double a,x,G,F,Y,from_x,to_x,i,j,from_a,to_a,x_step,a_step;
     int steps,arrayc=0,counter;
-    char b;
+    char b,string_value[100],sample[100],string_array[100],one_string[9999];
 
     for(;;){
         printf("%s\n", "Хотите ли вы запустить программу? yes/no");
@@ -21,15 +22,22 @@ int main()
 
             printf("Примечание: От меньшего к большему\n");
             printf("Введите значение переменной a от: ");
-            scanf("%lf" , &from_a);
+            scanf("%s" , string_value);
+            from_a = atof(string_value);
             printf("До: ");
-            scanf("%lf", &to_a);
+            scanf("%s", string_value);
+            to_a = atof(string_value);
             printf("Введите значение переменной x от:  ");
-            scanf("%lf", &from_x);
+            scanf("%s", string_value);
+            from_x = atof(string_value);
             printf("До: ");
-            scanf("%lf", &to_x);
+            scanf("%s", string_value);
+            to_x = atof(string_value);
             printf("Количество шагов: ");
-            scanf("%i", &steps);
+            scanf("%s", string_value);
+            steps = atoi(string_value);
+            printf("Введите шаблон: ");
+            scanf("%s",sample);
             x_step = (to_x-from_x)/steps;
             a_step = (to_a-from_a)/steps;
             double G_array[steps],F_array[steps],Y_array[steps];
@@ -40,9 +48,9 @@ int main()
 
             switch (b) {
                 case 'G':
-                        for(i=from_x,j=from_a;i<to_x,j<to_a;i+=x_step,j+=a_step){
-                            x=i;
-                            a=j;
+                    for(i=from_x,j=from_a;i<to_x,j<to_a;i+=x_step,j+=a_step){
+                        x=i;
+                        a=j;
                         if (((15*a*a+29*a*x+12*x*x) >= -0.00001
                              && (15*a*a+29*a*x+12*x*x) <= 0.00001)){
                             printf("Входные данные не подлежат области определения функции");
@@ -51,18 +59,15 @@ int main()
                             G = (4 * a * a + 3 * a * x + 10 * x * x) / (15 * a * a + 29 * a * x + 12 * x * x);
                             G_array[arrayc] = G;
                             arrayc+=1;}}
-                            min = G_array[0];
-                            max = G_array[0];
                         for(counter=0;counter<arrayc;counter++){
-                            if(G_array[counter] < min)
-                                min = G_array[counter];
-                            if(G_array[counter] > max)
-                                max = G_array[counter];}
+                            sprintf(string_array,"%lf",G_array[counter]);
+                            strcat(one_string,string_array);}
+
                     break;
                 case 'F':
-                        for(i=from_x, j=from_a;i<to_x, j<to_a;i+=x_step,j+=a_step){
-                            x=i;
-                            a=j;
+                    for(i=from_x, j=from_a;i<to_x, j<to_a;i+=x_step,j+=a_step){
+                        x=i;
+                        a=j;
                         if ((cos(5 * a * a + 14 * a * x - 3 * x * x)) >= -0.00001
                             && (cos(5 * a * a + 14 * a * x - 3 * x * x)) <= 0.00001){
                             printf("Входные данные не подлежат области определения функции");
@@ -71,18 +76,11 @@ int main()
                             F = 1 / (cos(5 * a * a + 14 * a * x - 3 * x * x));
                             F_array[arrayc] = F;
                             arrayc+=1;}}
-                            min = F_array[0];
-                            max = F_array[0];
-                        for(counter=0;counter<arrayc;counter++){
-                            if(F_array[counter]<min)
-                                min = F_array[counter];
-                            if(F_array[counter]>max)
-                                max = F_array[counter];}
                     break;
                 case 'Y':
-                        for(i=from_x, j=from_a;i<to_x, j<to_a;i+=x_step,j+=a_step){
-                            x=i;
-                            a=j;
+                    for(i=from_x, j=from_a;i<to_x, j<to_a;i+=x_step,j+=a_step){
+                        x=i;
+                        a=j;
                         if ((9 * a * a + 42 * a * x + 40 * x * x + 1) <= 1){
                             printf("Входные данные не подлежат области определения функции");
                             break;}
@@ -90,19 +88,10 @@ int main()
                             Y = acosh(9*a*a+42*a*x+40*x*x+1);
                             Y_array[arrayc] = Y;
                             arrayc+=1;}}
-                            min = Y_array[0];
-                            max = Y_array[0];
-                        for(counter=0;counter<arrayc;counter++){
-                            if(Y_array[counter]<min)
-                                min = Y_array[counter];
-                            if(Y_array[counter]>max)
-                                max = Y_array[counter];}
                     break;
                 default:
                     printf("%s\n","Ошибка");
             }
-            printf("%s%lf\n","Максимальный элемент массива = ", max);
-            printf("%s%lf\n","Минимальный элемент массива = ", min);
         }
         else
             break;}

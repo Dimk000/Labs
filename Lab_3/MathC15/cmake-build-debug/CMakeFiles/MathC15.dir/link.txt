@@ -1,0 +1,1 @@
+/usr/bin/cc   -std=c90 -Wall -pedantic -g   CMakeFiles/MathC15.dir/main.c.o  -o MathC15 -rdynamic -lm 
