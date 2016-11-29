@@ -2,9 +2,7 @@
 #include <math.h>
 #include <string.h>
 
-double acosh(double d) {
-    return 0;
-}
+double acosh(double);
 
 int main()
 {
@@ -19,7 +17,6 @@ int main()
         scanf("%s", yes2);
         if (strcmp(yes2,yes1) == 0){
 
-            printf("Примечание: От меньшего к большему\n");
             printf("Введите значение переменной a от: ");
             scanf("%lf" , &from_a);
             printf("До: ");
@@ -58,6 +55,11 @@ int main()
                                 min = G_array[counter];
                             if(G_array[counter] > max)
                                 max = G_array[counter];}
+                            printf("____________________\n");
+                            printf("|    X    |    Y    |\n");
+                            printf("--------------------\n");
+                        for(i=from_x,counter=0;i<to_x,counter<arrayc;i+=x_step,counter++)
+                            printf("|%lf|%lf|\n",i,G_array[counter]);
                     break;
                 case 'F':
                         for(i=from_x, j=from_a;i<to_x, j<to_a;i+=x_step,j+=a_step){
@@ -78,6 +80,11 @@ int main()
                                 min = F_array[counter];
                             if(F_array[counter]>max)
                                 max = F_array[counter];}
+                            printf("____________________\n");
+                            printf("|    X    |    Y    |\n");
+                            printf("--------------------\n");
+                        for(i=from_x,counter=0;i<to_x,counter<arrayc;i+=x_step,counter++)
+                            printf("|%lf|%lf|\n",i,F_array[counter]);
                     break;
                 case 'Y':
                         for(i=from_x, j=from_a;i<to_x, j<to_a;i+=x_step,j+=a_step){
@@ -97,10 +104,14 @@ int main()
                                 min = Y_array[counter];
                             if(Y_array[counter]>max)
                                 max = Y_array[counter];}
+                            printf("____________________\n");
+                            printf("|    X    |    Y    |\n");
+                            printf("--------------------\n");
+                        for(i=from_x,counter=0;i<to_x,counter<arrayc;i+=x_step,counter++)
+                            printf("|%lf|%lf|\n",i,Y_array[counter]);
                     break;
                 default:
-                    printf("%s\n","Ошибка");
-            }
+                    printf("%s\n","Ошибка");}
             printf("%s%lf\n","Максимальный элемент массива = ", max);
             printf("%s%lf\n","Минимальный элемент массива = ", min);
         }

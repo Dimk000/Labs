@@ -1,3 +1,0 @@
-/home/user/Labs/Lab_3/MathC15/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/user/Labs/Lab_3/MathC15/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/user/Labs/Lab_3/MathC15/cmake-build-debug/CMakeFiles/MathC15.dir
