@@ -8,16 +8,17 @@ while enter == 1:
     a = float(input("Введите значение а: "))
     x = float(input("Введите значение x: "))
     steps = float(input("Количество шагов: "))
+    step_value = float(input("Размер шага: "))
     print("Вычислить функцию G - 1")
     print("Вычислить функцию F - 2")
     print("Вычислить функцию Y - 3")
     b = int(input("Выберите функцию: "))
-    p = x+(steps*1)
+    p = x+(steps*step_value)
     x_values = []
     y_values = []
 
     while x < p:
-        x += 1
+        x += step_value
         if b == 1:
             if 15*a**2+29*a*x+12*x**2 >= -0.00001 and 15*a**2+29*a*x+12*x**2 <= 0.00001:
                 print("Входные данные не подлежат области определения функции")
