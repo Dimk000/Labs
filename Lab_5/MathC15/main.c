@@ -11,7 +11,7 @@ int main()
 {
     double a,x,G,F,Y,from_x,to_x,i,j,from_a,to_a,x_step,a_step;
     int steps,arrayc=0,counter;
-    char b,string_value[100],sample[100],string_array[100],one_string[9999];
+    char b,string_value[100],sample[100],string_array[100],one_string[9999],*string123;
 
     for(;;){
         printf("%s\n", "Хотите ли вы запустить программу? yes/no");
@@ -62,7 +62,9 @@ int main()
                         for(counter=0;counter<arrayc;counter++){
                             sprintf(string_array,"%lf",G_array[counter]);
                             strcat(one_string,string_array);}
-
+                            printf("%s\n",one_string);
+                            string123 = strstr(one_string,sample);
+                            printf("%s\n",string123);
                     break;
                 case 'F':
                     for(i=from_x, j=from_a;i<to_x, j<to_a;i+=x_step,j+=a_step){
