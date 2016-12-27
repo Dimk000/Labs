@@ -8,8 +8,8 @@ while enter == 1:
     a = float(input("Введите значение а: "))
     x_from = float(input("Введите значение x от: "))
     x_to = float(input("До: "))
-    steps = float(input("Количество шагов: "))
-    step_value = (x_to-x_from)/steps
+    step_value = float(input("Размер шага: "))
+    difference = float(input("Разница между функциями: "))
     print("Вычислить функцию G - 1")
     print("Вычислить функцию F - 2")
     print("Вычислить функцию Y - 3")
@@ -51,6 +51,11 @@ while enter == 1:
                 print("Y = ", Y)
                 x_values.append(x)
                 y_values.append(Y)
+            Y1 = math.acosh(9*a**2+42*a*(x+step_value)+40*(x+step_value)**2+1)
+            if Y1 - Y < difference:
+                while Y1 - Y < difference:
+                    step_value *= 2
+                    Y1 = math.acosh(9 * a ** 2 + 42 * a * (x + step_value) + 40 * (x + step_value) ** 2 + 1)
             x_from += step_value
         plt.title('График Y')
     else:
