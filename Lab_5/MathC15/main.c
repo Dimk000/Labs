@@ -8,8 +8,8 @@ double acosh(double);
 int main()
 {
     double a,x,G,F,Y,from_x,to_x,i,j,from_a,to_a,x_step,a_step;
-    int steps,arrayc=0,counter;
-    char b,string_value[100],sample[100],string_array[100],one_string[9999];
+    long int steps,arrayc=0,counter=0,coincidences=0,string_index=0;
+    char b,string_value[100],sample[100],string_array[100],one_string[1000];
 
     for(;;){
         printf("%s\n", "Хотите ли вы запустить программу? yes/no");
@@ -18,7 +18,6 @@ int main()
         scanf("%s", yes2);
         if (strcmp(yes2,yes1) == 0){
 
-            printf("Примечание: От меньшего к большему\n");
             printf("Введите значение переменной a от: ");
             scanf("%s" , string_value);
             from_a = atof(string_value);
@@ -60,6 +59,23 @@ int main()
                         for(counter=0;counter<arrayc;counter++){
                             sprintf(string_array,"%lf",G_array[counter]);
                             strcat(one_string,string_array);}
+                        while (string_index < strlen(one_string)){
+                            if (strstr(one_string,sample) - one_string + 1 < strlen(one_string)){
+                                coincidences++;
+                                string_index = strstr(one_string,sample) - one_string + 1;
+                                while (counter != string_index){
+                                    one_string[counter] = '_';
+                                    counter++;}
+                                counter=0;}
+                            if(strstr(one_string,sample)==0)
+                                break;}
+                        printf("Количество найденых совпадений: %li\n",coincidences);
+                        coincidences = 0;
+                        string_index = strlen(one_string);
+                        while (string_index != 0){
+                            for (counter = 0; counter<string_index;counter++){
+                                one_string[counter] = one_string[counter+1];}
+                        string_index--;}
                     break;
                 case 'F':
                     for(i=from_x, j=from_a;i<to_x, j<to_a;i+=x_step,j+=a_step){
@@ -76,6 +92,23 @@ int main()
                         for(counter=0;counter<arrayc;counter++){
                             sprintf(string_array,"%lf",F_array[counter]);
                             strcat(one_string,string_array);}
+                        while (string_index < strlen(one_string)){
+                            if (strstr(one_string,sample) - one_string + 1 < strlen(one_string)){
+                                coincidences++;
+                                string_index = strstr(one_string,sample) - one_string + 1;
+                                while (counter != string_index){
+                                    one_string[counter] = '_';
+                                    counter++;}
+                                counter=0;}
+                            if(strstr(one_string,sample)==0)
+                                break;}
+                        printf("Количество найденых совпадений: %li\n",coincidences);
+                        coincidences = 0;
+                        string_index = strlen(one_string);
+                        while (string_index != 0){
+                            for (counter = 0; counter<string_index;counter++){
+                                one_string[counter] = one_string[counter+1];}
+                        string_index--;}
                     break;
                 case 'Y':
                     for(i=from_x, j=from_a;i<to_x, j<to_a;i+=x_step,j+=a_step){
@@ -89,8 +122,25 @@ int main()
                             Y_array[arrayc] = Y;
                             arrayc+=1;}}
                         for(counter=0;counter<arrayc;counter++){
-                            sprintf(string_array,"%lf",_array[counter]);
+                            sprintf(string_array,"%lf",Y_array[counter]);
                             strcat(one_string,string_array);}
+                        while (string_index < strlen(one_string)){
+                            if (strstr(one_string,sample) - one_string + 1 < strlen(one_string)){
+                                coincidences++;
+                                string_index = strstr(one_string,sample) - one_string + 1;
+                                while (counter != string_index){
+                                    one_string[counter] = '_';
+                                    counter++;}
+                                counter=0;}
+                            if(strstr(one_string,sample)==0)
+                                break;}
+                        printf("Количество найденых совпадений: %li\n",coincidences);
+                        coincidences = 0;
+                        string_index = strlen(one_string);
+                        while (string_index != 0){
+                            for (counter = 0; counter<string_index;counter++){
+                                one_string[counter] = one_string[counter+1];}
+                        string_index--;}
                     break;
                 default:
                     printf("%s\n","Ошибка");

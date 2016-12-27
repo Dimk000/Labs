@@ -64,6 +64,10 @@ while enter == 1:
     while counter < steps:
         one_string = one_string + str(y_values[counter])
         counter += 1
-
+    print(one_string)
+    one_string_add = one_string.split(sample)
+    coincidences = len(one_string_add) - 1
+    print(one_string_add)
+    print(coincidences)
     print("Запустить программу - 1, выйти - 0")
     enter = int(input())
