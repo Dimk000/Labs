@@ -3,11 +3,12 @@
 #include <stdlib.h>
 #include <time.h>
 #include <omp.h>
+#define N 5000
 
 struct points
 {
-    double x[100];
-    double y[100];
+    double x[N];
+    double y[N];
 };
 
 struct main_point
@@ -22,7 +23,7 @@ struct points generator_array(void)
     int i = 0;
     srand(time(NULL));
 
-    for (i = 0; i < 100; i++) {
+    for (i = 0; i < N; i++) {
         array.x[i] = (double) rand() / RAND_MAX * (5.0 + 5.0) - 5.0;
         array.y[i] = (double) rand() / RAND_MAX * (5.0 + 5.0) - 5.0;
     }
@@ -46,13 +47,13 @@ int amountOfPoints(double rad)
     int i = 0, choice = 0;
     srand(time(NULL));
 
-    choice = rand() % 100;
+    choice = rand() % N;
 
     mass = generator_array();
-    mass.x[choice] = thePoint.main_x;
-    mass.y[choice] = thePoint.main_y;
+    thePoint.main_x = mass.x[choice];
+    thePoint.main_y = mass.y[choice];
 
-    for (i = 0; i < 100; i++)
+    for (i = 0; i < N; i++)
     {
         allPoints.main_x = mass.x[i];
         allPoints.main_y = mass.y[i];
