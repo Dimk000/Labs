@@ -10,7 +10,7 @@ int main(void)
     UINT    x, y;
     float gray;
 
-    bmp = BMP_ReadFile( "/home/user/Labs/Semestr tasks/Grayscale/C/lena.bmp" );
+    bmp = BMP_ReadFile( "/home/user/Labs/Semestr tasks/Image/Grayscale/C/lena.bmp" );
     BMP_CHECK_ERROR( stderr, -1 ); /* If an error has occurred, notify and exit */
 
     width = BMP_GetWidth( bmp );
@@ -29,7 +29,7 @@ int main(void)
         }
     }
 
-    BMP_WriteFile( bmp, "/home/user/Labs/Semestr tasks/Grayscale/C/grayscale.bmp");
+    BMP_WriteFile( bmp, "/home/user/Labs/Semestr tasks/Image/Grayscale/C/grayscale.bmp");
     BMP_CHECK_ERROR( stderr, -2 );
 
     BMP_Free( bmp );
