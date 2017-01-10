@@ -4,13 +4,12 @@
 #include <omp.h>
 
 int main() {
-    int i, j, k, N, size;
+    int i, j, k, N;
     float A[100][100], B[100][100], C[100][100];
     double start, end, time_result[100];
     FILE *file;
 
     for(N=3;N<100;N++) {
-        size = N - 1;
 
         srand(time(NULL));
 

@@ -8,7 +8,7 @@ int main(void)
     UCHAR   r, g, b;
     UINT    width, height;
     UINT    x, y;
-    float gray;
+    int gray;
 
     bmp = BMP_ReadFile( "/home/user/Labs/Semestr tasks/Image/Grayscale/C/lena.bmp" );
     BMP_CHECK_ERROR( stderr, -1 ); /* If an error has occurred, notify and exit */
@@ -23,8 +23,7 @@ int main(void)
             /* Get pixel's RGB values */
             BMP_GetPixelRGB( bmp, x, y, &r, &g, &b );
 
-            gray = sqrtf((r*r+g*g+b*b)/3);
-            /* Invert RGB values */
+            gray = (int)sqrtf((r*r+g*g+b*b)/3);
             BMP_SetPixelRGB( bmp, x, y, gray, gray, gray );
         }
     }

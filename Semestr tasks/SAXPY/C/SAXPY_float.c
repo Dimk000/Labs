@@ -7,6 +7,7 @@ float SAXPY(int n, float a, float x, float y){
     int i;
     for(i=0;i<n;i++)
         y = a * x + y;
+    return y;
 }
 
 int main(){
@@ -21,9 +22,9 @@ int main(){
     for(i=0;i<10000;i++)
         x[i] = (float)rand()/RAND_MAX * (float)100.0;
     file = fopen("/home/user/Labs/Semestr tasks/SAXPY/C/log_float.txt", "w");
-    for(i=0;i<10000;i++){
+    for(i=0;i<10000;i+=100){
         start = omp_get_wtime();
-        SAXPY(i,a,x[i],y);
+        y = SAXPY(i,a,x[i],y);
         end = omp_get_wtime();
         timer = end - start;
         fprintf(file,"%lf\n",timer);

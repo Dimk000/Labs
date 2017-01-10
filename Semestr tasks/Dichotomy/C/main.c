@@ -11,8 +11,7 @@ int main(){
     scanf("%lf", &a);
     printf("Введите 2-ую границу интервала: ");
     scanf("%lf", &b);
-    printf("Введите точность ");
-    scanf("%lf", &eps);
+    eps = 0.0001;
     do{
         c = (a + b) / 2;
         if (F(c) * F(a) < 0)
