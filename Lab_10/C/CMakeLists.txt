@@ -3,5 +3,5 @@ project(C)
 
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c99")
 
-set(SOURCE_FILES main.c)
+set(SOURCE_FILES Third.c)
 add_executable(C ${SOURCE_FILES})
