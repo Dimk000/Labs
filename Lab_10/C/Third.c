@@ -1,46 +1,24 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-int main(void)
-{
-    int *i,*j;
-    i = NULL;
-    j = NULL;
-    char *line,input_line[100],vowels[5];
-    line = NULL;
-    size_t line_lenght;
-    vowels[0] = 'a';
-    vowels[1] = 'e';
-    vowels[2] = 'i';
-    vowels[3] = 'o';
-    vowels[4] = 'u';
-    vowels[5] = 'y';
-
-    memset(input_line, 100, 0);
-    printf("Введите побуквенно латинские символы: ");
-    scanf("%s",input_line);
-    line_lenght = strlen(input_line);
-    input_line[line_lenght] = ' ';
-
-    i = (int *) malloc(sizeof(int));
-    j = (int *) malloc(sizeof(int));
-    line = (char *) malloc(sizeof(char)*line_lenght+1);
-
-    for (*i = 0; *i<line_lenght; (*i)++)
-    {
-        line[*i]=input_line[*i];
-        if (strchr(vowels,line[*i]) != NULL)
-        {
-            printf("%c ", line[*i]);
+#include <memory.h>
+int main() {
+    char symb = 'q';
+    char *tmp, *b;
+    int i = 1;
+    tmp = malloc(2 * sizeof(char));
+    b = malloc(sizeof(char));
+    *tmp = NULL;
+    *b = NULL;
+    while (symb != ' ') {
+        gets(&symb);
+        if ((symb == 'e') || (symb == 'E') || (symb == 'u') || (symb == 'U') || (symb == 'o') || (symb == 'O') ||
+            (symb == 'a') || (symb == 'A') || (symb == 'i') || (symb == 'I')) {
+            sprintf(b, "%s", &symb);
+            strcat(tmp, b);
+            tmp = realloc(tmp, 1 + sizeof(char));
         }
     }
-    free(i);
-    free(j);
-    free(line);
-    i = NULL;
-    j = NULL;
-    line = NULL;
-
+    printf("%s", tmp);
     return 0;
 }
